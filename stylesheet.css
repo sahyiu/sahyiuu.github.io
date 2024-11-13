@@ -68,7 +68,7 @@ nav ul{
     display: flex;
     justify-content: left;
     width: 90%;
-    transform: translateX(-20%);
+    transform: translateX(-5%);
     list-style: none;
     position: relative;
     z-index: 2;
