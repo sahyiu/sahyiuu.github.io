@@ -1,0 +1,453 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lora', sans-serif;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #333333;
+    color: #fff;
+}
+
+#header {
+    position: relative; 
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle, #421221, #422A4C 50%, #222222);
+    overflow: hidden;
+    z-index: 0;
+}
+
+#header::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    background: radial-gradient(circle, transparent, #422A4C 50%, transparent);
+    animation: color 2s infinite ease-out alternate;
+    opacity: 0;
+    z-index: -1;
+}
+
+@keyframes color {
+    0% {  background: radial-gradient(circle, transparent, #422A4C 50%, transparent); }
+    100% { opacity: 0.8; }
+}
+
+.header-text {
+    position: relative;
+    padding-top: 5%;
+    text-align: center;
+    z-index: 1; 
+    z-index: 2;
+}
+
+.container {
+    padding: 10px 10%;
+}
+
+nav {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.logo {
+    width: 90px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+nav ul{
+    display: flex;
+    justify-content: left;
+    width: 90%;
+    transform: translateX(-20%);
+    list-style: none;
+    position: relative;
+    z-index: 2;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 40px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 580;
+    position: relative;
+    z-index: 3;
+}
+
+nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #df8eff;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.header-text h1 {
+    font-size: 70px;
+    text-align: center;
+    margin-top: 20px;
+}
+.header-text h2{
+    font-weight: 100;
+}
+
+.header-text h1 span {
+    color: #df8eff;
+}
+
+.cv-btn {
+    position: relative;
+    margin-top: 20px;  /* This will place the button below the header */
+    padding: 20px 30px;
+    font-size: 18px; /* Increased font size */
+    color: white;
+    background-color: transparent;
+    border: 2px solid #df8eff;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-block;
+    transition: background-color 0.1s;
+}
+
+.cv-btn:hover {
+    background-color: #df8eff;
+}
+
+.social-iconsH {
+    margin-top: 20%;  /* Space between the CV button and social icons */
+    text-align: center;  
+    
+}
+
+.social-iconsH a {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 100;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: white;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.social-iconsH a:hover {
+    color: #df8eff;
+    transform: scale(1.3);
+}
+
+#about{
+    padding: 80px 0;
+    color:#ababab;
+}
+
+.row{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col1{
+    flex-basis: 25%;
+    margin-left: 10%;
+}
+
+.about-col1 img {
+    width: 400px; /* Let the image take the full width of the .about-col1 column */
+    height:100%; /* Maintain aspect ratio */
+    border-radius: 50px;
+    border-color: #422A4C;
+    border-style: solid;
+}
+
+.about-col2{
+    flex-basis: 50%;
+}
+
+.about-col2 p{
+    font-size: 17px;
+    text-align: justify;
+    }
+
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #df8eff;
+}
+#portfolio h3{
+    font-size: 20px;
+    color: #421221;
+}
+
+.tab-titles{
+    display: flex;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0 40px;
+}
+
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #df8eff;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+
+.tab-links.active-link::after{
+    width: 50%;
+}
+
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+}
+
+.tab-contents ul li span{
+    color: #df8eff;
+    font-size: 14px;
+}
+
+.tab-contents{
+    display: none;
+}
+
+.tab-contents.active-tab{
+    display: block;
+}
+
+#portfolio{
+    padding: 50px 0;
+}
+
+.work-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    padding: 0 10px;
+    margin-top: 50px;
+}
+
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.work img{
+    width: 100%;
+    border-radius: 30px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6), rgb(223, 142, 255, 0.6));
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height;
+}
+
+.layer h2{
+    font-weight: 550;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.layer h4{
+    font-weight: 100;
+    font-size: 14px;
+    text-align: justify;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.layer a{
+    margin-top: 20px;
+    color: #222222;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 30px;
+    background: #888888;
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    text-align: center;
+}
+
+.work:hover img{
+    transform: scale(1.1);
+}
+.work:hover .layer{
+    height: 100%;
+}
+
+.btn{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #df8eff;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.5s;
+}
+
+.btn:hover{
+    background: #df8eff;
+
+}
+
+.row {
+    display: flex;
+    justify-content: space-between; /* Ensure that items are spaced out evenly */
+    align-items: center; /* Vertically align items in the center */
+    flex-wrap: wrap; /* Allow wrapping in smaller screens */
+}
+
+.img-container {
+    flex: 1; /* Take up 50% of the container space */
+    text-align: center;
+}
+
+.img-container h1{
+    color: #df8eff;
+    font-size: 65px;
+}
+
+.img-container h3{
+    color: #421221;
+    font-size: 20px;
+}
+
+.contact-img {
+    width: 80%; /* Adjust the width as necessary */
+    height: auto; /* Keep the image's aspect ratio intact */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+.form-container {
+    flex: 1; /* Take up the other 50% */
+    padding: 20px;
+    border: 5px solid #df8eff; /* Simulates underline */
+    border-radius: 6px; /* Optional: Add border-radius for rounded corners */
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container input, .form-container textarea {
+    padding: 15px;
+    background-color: transparent;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-style: none;
+    border-bottom: 2px solid #df8eff; 
+}
+
+.form-container button {
+    display: block;
+    margin: 20px;
+    width: fit-content;
+    background-color: transparent;
+    border: 1px solid #df8eff;
+    padding: 14px 50px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.5s;
+}
+
+.form-container button:hover {
+    background: #df8eff;
+}
+
+.form-container p {
+    margin-top: 30px;
+}
+
+.form-container p i {
+    color: #df8eff;
+    margin-right: 15px;
+    font-size: 25px;
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #888888;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.social-icons a:hover {
+    color: #df8eff;
+    transform: scale(1.3);
+}
+.copyright{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+
+nav .ri-close-circle-line, .ri-menu-3-line {
+    display: none;
+}
